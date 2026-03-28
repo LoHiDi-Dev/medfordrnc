@@ -2,25 +2,55 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1f2937;
+  --primary: #008c27;
+  --primary-hover: #007a22;
+  --primary-foreground: #ffffff;
+  --mint: #e8f3eb;
+  --mint-soft: #f0fdf4;
+  --warm-gray: #f5f3ef;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --footer: #1f2937;
+  --star: #facc15;
+  --ring: #008c27;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-warm-gray: var(--warm-gray);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-footer: var(--footer);
+  --color-star: var(--star);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-source-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-serif-display {
+  font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+}
+
+/* Visible focus for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }

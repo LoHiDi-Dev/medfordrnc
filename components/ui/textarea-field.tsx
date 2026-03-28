@@ -1,0 +1,57 @@
+import type { ComponentProps } from "react";
+import { cn } from "@/lib/utils";
+
+export type TextAreaFieldProps = ComponentProps<"textarea"> & {
+  label: string;
+  hint?: string;
+  error?: string;
+  id: string;
+};
+
+export function TextAreaField({
+  label,
+  hint,
+  error,
+  id,
+  className,
+  required,
+  rows = 5,
+  ...props
+}: TextAreaFieldProps) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <label htmlFor={id} className="text-sm font-medium text-foreground">
+        {label}
+        {required ? <span className="text-primary"> *</span> : null}
+      </label>
+      <textarea
+        id={id}
+        rows={rows}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={
+          [hint && `${id}-hint`, error && `${id}-error`]
+            .filter(Boolean)
+            .join(" ") || undefined
+        }
+        className={cn(
+          "min-h-[140px] w-full rounded-lg border border-border bg-white px-3 py-2 text-foreground shadow-sm placeholder:text-muted/70",
+          "focus:border-primary focus:ring-2 focus:ring-primary/25",
+          error && "border-red-600 focus:border-red-600 focus:ring-red-200",
+          className,
+        )}
+        required={required}
+        {...props}
+      />
+      {hint ? (
+        <p id={`${id}-hint`} className="text-xs text-muted">
+          {hint}
+        </p>
+      ) : null}
+      {error ? (
+        <p id={`${id}-error`} role="alert" className="text-sm text-red-700">
+          {error}
+        </p>
+      ) : null}
+    </div>
+  );
+}
