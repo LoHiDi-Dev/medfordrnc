@@ -1,12 +1,9 @@
-import { site } from "./site";
-
 export const footerQuickLinks = [
   { label: "About Us", href: "/about-us" },
   { label: "Mission & Values", href: "/about-us/mission-values" },
   { label: "Our Team", href: "/about-us/our-team" },
   { label: "For Families", href: "/families" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const footerServiceLinks = [
@@ -23,4 +20,5 @@ export const footerLegal = [
   { label: "Accessibility", href: "/accessibility" },
 ] as const;
 
-export const footerBlurb = `Providing compassionate care and trusted expertise to families in ${site.address.city}, ${site.address.state} for over 30 years.`;
+/** Matches Figma homepage footer copy (node 36:2839). */
+export const footerBlurb = `Providing compassionate care and trusted expertise to families in Medford, Mass for over 30 years.`;

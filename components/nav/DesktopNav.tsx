@@ -9,8 +9,8 @@ function DesktopNavInner() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
-      <ul className="flex items-center gap-8">
+    <nav aria-label="Main" className="hidden items-center lg:flex">
+      <ul className="flex items-center gap-8 xl:gap-[32px]">
         {mainNavigation.map((section) => {
           const isActive =
             pathname === section.href ||
@@ -21,14 +21,11 @@ function DesktopNavInner() {
               <Link
                 href={section.href}
                 className={cn(
-                  "inline-flex items-center gap-1 rounded-md py-2 text-base font-medium tracking-tight text-foreground hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                  "inline-flex items-center rounded-md py-2 text-[16px] font-medium leading-6 tracking-[-0.3125px] text-[#1f2937] hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
                   isActive && "text-primary",
                 )}
               >
                 {section.label}
-                <span aria-hidden className="text-xs opacity-60">
-                  ▾
-                </span>
               </Link>
               <ul
                 className={cn(

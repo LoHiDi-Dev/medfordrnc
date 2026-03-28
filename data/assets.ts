@@ -1,39 +1,40 @@
 /**
  * Image URLs from Figma MCP exports (homepage + interior pages).
  * Remote assets; configure next/image in next.config.ts.
+ * Refresh URLs when Figma MCP asset links expire (~7 days).
  */
 export const assets = {
   logoColor:
-    "https://www.figma.com/api/mcp/asset/2bc3f38b-6aa4-498c-9fac-7d6047e6ac4a",
+    "https://www.figma.com/api/mcp/asset/85d4a06b-8917-43e5-ad06-839501e14e1d",
   logoWhite:
-    "https://www.figma.com/api/mcp/asset/e39730e1-4afc-45bb-b082-a53e4c047400",
+    "https://www.figma.com/api/mcp/asset/47bcb53e-8f92-44e7-aac6-cc6526a4b82b",
   hero:
-    "https://www.figma.com/api/mcp/asset/a1db0c66-51f6-4249-8a7c-d58c975c0d1a",
+    "https://www.figma.com/api/mcp/asset/067bbd55-f06d-4d4f-a5ed-fab46fe6a33d",
   whyFamilies:
-    "https://www.figma.com/api/mcp/asset/fb4c930a-dc74-4058-b042-1a5c0e811754",
+    "https://www.figma.com/api/mcp/asset/35965d73-8070-44a6-b727-c0cfcd31cd02",
   lifeActivities:
-    "https://www.figma.com/api/mcp/asset/c4638d55-5244-478a-bde8-c3805ee9f1b6",
+    "https://www.figma.com/api/mcp/asset/88811e30-e500-4203-b8ca-512a6b87d800",
   lifeGarden:
-    "https://www.figma.com/api/mcp/asset/0b965c24-462b-49c8-a766-14266f8b609d",
+    "https://www.figma.com/api/mcp/asset/75045f5b-9856-4d66-a467-2a311cd6ac0a",
   contactSidebarPhoto:
     "https://www.figma.com/api/mcp/asset/e6a2c7a1-227e-4679-842d-ac5d4f5502f2",
   services: {
     shortTerm:
-      "https://www.figma.com/api/mcp/asset/bf160523-2994-4664-b749-4d6b9f45a878",
+      "https://www.figma.com/api/mcp/asset/3878b82a-abf3-46a9-ada1-64d1116e4fcc",
     longTerm:
-      "https://www.figma.com/api/mcp/asset/8eec7360-718f-4564-ab8d-a0e58cca1002",
+      "https://www.figma.com/api/mcp/asset/68918e42-86f5-4044-abd8-e9ccb4b5f580",
     memory:
-      "https://www.figma.com/api/mcp/asset/8eec7360-718f-4564-ab8d-a0e58cca1002",
+      "https://www.figma.com/api/mcp/asset/5b5b0e8a-f02e-4bbd-87fd-1e923935bb0a",
     postAcute:
-      "https://www.figma.com/api/mcp/asset/443f2e8b-9947-4363-906d-26fd1aeb91cc",
+      "https://www.figma.com/api/mcp/asset/aaae6501-d39b-4fed-923d-dd6848131d0d",
     occupational:
-      "https://www.figma.com/api/mcp/asset/17b0b0d7-25ae-4755-ae33-3b3cbcd2c281",
+      "https://www.figma.com/api/mcp/asset/c8b48d20-e018-4adb-8374-d767fa15f53d",
     speech:
-      "https://www.figma.com/api/mcp/asset/72548306-04d0-4358-954e-85611a11fada",
+      "https://www.figma.com/api/mcp/asset/35d645b6-3a88-41dc-b1e2-142106b7996a",
   },
   testimonials: {
-    a: "https://www.figma.com/api/mcp/asset/d4d520d2-9aef-4244-8e08-12fb5ca606e9",
-    b: "https://www.figma.com/api/mcp/asset/cabe501f-93a2-4aee-9985-142846d4d2fd",
-    c: "https://www.figma.com/api/mcp/asset/3684161c-f72f-4911-b85a-83732e3bea10",
+    a: "https://www.figma.com/api/mcp/asset/61fa096e-a3a2-447d-b59d-1984f765ad04",
+    b: "https://www.figma.com/api/mcp/asset/60aed461-7056-49ac-9aa7-a9d129b00dc2",
+    c: "https://www.figma.com/api/mcp/asset/f50b6e72-c7dd-412a-a6bd-70944384ff85",
   },
 } as const;

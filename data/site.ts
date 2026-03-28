@@ -3,7 +3,8 @@ export const site = {
   shortName: "Medford RNC",
   phoneDisplay: "781.396.4400",
   phoneTel: "+17813964400",
-  email: "info@medfordrnc.com",
+  /** General inquiries (matches approved Figma footer). */
+  email: "info@medfordrehab.com",
   billingEmail: "billing@medfordrnc.com",
   address: {
     line1: "101 Main Street",

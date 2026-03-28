@@ -1,6 +1,7 @@
+import { Calendar } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { assets } from "@/data/assets";
 import {
   lifeCommunityPillars,
@@ -10,7 +11,6 @@ import {
   whyFamiliesItems,
 } from "@/data/homepage";
 import { PageContainer } from "@/components/layout/PageContainer";
-import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/CTASection";
 import { FeatureChecklist } from "@/components/sections/FeatureChecklist";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -25,72 +25,38 @@ export const metadata: Metadata = {
     "Compassionate rehabilitation and skilled nursing in Medford—trusted by families for 30+ years.",
 };
 
-function ActivitiesIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden {...props}>
-      <path
-        d="M7 3v4M17 3v4M5 9h14M5 7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+const heroBtnShadow =
+  "shadow-[0px_20px_25px_0px_rgba(0,0,0,0.1),0px_8px_10px_0px_rgba(0,0,0,0.1)]";
 
-function UtensilsIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden {...props}>
-      <path
-        d="M8 3v9a3 3 0 0 0 6 0V3M11 3v18M16 8v13M18 5v3"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+const lifeImageShadow =
+  "shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]";
 
-function PartyIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden {...props}>
-      <path
-        d="m4 20 4-8 6 2 2 6M9 12l8-8 2 2-8 8M14 7l3 3"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+const pillarShadow =
+  "shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)]";
+
+const whyImageShadow =
+  "shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]";
 
 export default function HomePage() {
-  const metricsForStrip = trustMetrics.map((m) => ({
-    key: m.key,
-    title: m.title,
-    description: m.description,
-    icon: m.icon,
-  }));
-
   return (
     <>
       <HeroSection
         badge="30+ Years of Trusted Care"
         title="Compassionate care your family can trust"
-        description="Expert rehabilitation and nursing care delivered with warmth, dignity, and peace of mind for families in Medford."
+        description={
+          "Expert rehabilitation and nursing care delivered\nwith warmth, dignity, and peace of mind\nfor families in Medford."
+        }
       />
-      <MetricsStrip items={metricsForStrip} />
+      <MetricsStrip items={trustMetrics} />
 
-      <section className="bg-warm-gray/40 py-16 sm:py-20">
-        <PageContainer>
+      <section className="bg-gradient-to-b from-white to-warm-gray pb-20 pt-20">
+        <div className="mx-auto w-full max-w-[1152px] px-5 sm:px-8 lg:px-0">
           <SectionHeading
             title="Our Services"
-            description="From short-term rehabilitation to long-term support, our clinical teams coordinate around the outcomes that matter to your family."
+            description="Comprehensive care tailored to your loved one's unique needs"
+            titleSize="xl"
           />
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-[64px] grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
             {serviceCards.map((s) => (
               <ServiceCard
                 key={s.slug}
@@ -99,142 +65,135 @@ export default function HomePage() {
                 href={`/services/${s.slug}`}
                 imageSrc={s.image}
                 imageAlt={s.imageAlt}
+                icon={s.icon}
+                learnMoreArrow={s.learnMoreArrow}
+                titleTone={
+                  s.learnMoreArrow === "primary" ? "muted" : "default"
+                }
               />
             ))}
           </div>
-          <div className="mt-12 flex justify-center">
-            <Button href="/services" size="lg">
+          <div className="mt-14 flex justify-center">
+            <Link
+              href="/services"
+              className={`inline-flex h-[60px] min-w-[259px] items-center justify-center gap-2 rounded-[10px] bg-primary px-10 text-[18px] font-semibold leading-7 tracking-[-0.4395px] text-white transition-colors hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${heroBtnShadow}`}
+            >
+              <Calendar
+                className="size-5 shrink-0"
+                strokeWidth={1.85}
+                aria-hidden
+              />
               View All Services
-            </Button>
+            </Link>
           </div>
-        </PageContainer>
+        </div>
       </section>
 
-      <section className="bg-mint py-16 sm:py-20">
+      <section className="bg-mint py-20 sm:py-24">
         <PageContainer>
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-md">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-12 xl:gap-[48px]">
+            <div
+              className={`relative h-[min(500px,70vw)] max-h-[500px] min-h-[280px] overflow-hidden rounded-2xl lg:h-[500px] ${whyImageShadow}`}
+            >
               <Image
                 src={assets.whyFamilies}
                 alt="Residents enjoying activities together in a bright community room"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(min-width: 1024px) 50vw, 100vw"
               />
             </div>
-            <div>
-              <SectionHeading
-                align="left"
-                title="Why Families Choose Us"
-                description="We combine clinical depth with the kind of communication families deserve during stressful transitions."
-              />
-              <FeatureChecklist className="mt-8" items={whyFamiliesItems} />
+            <div className="max-w-[616px]">
+              <h2 className="font-serif-display text-[48px] font-bold leading-[48px] text-[#48484a]">
+                Why Families Choose Us
+              </h2>
+              <p className="mt-6 max-w-[616px] text-pretty font-sans text-[20px] font-normal leading-[32.5px] text-[#374151]">
+                We understand that choosing care for your loved one is one of
+                life&apos;s most important decisions. Here&apos;s what sets us
+                apart.
+              </p>
+              <FeatureChecklist className="mt-10" items={whyFamiliesItems} />
             </div>
           </div>
         </PageContainer>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <PageContainer>
+      <section className="bg-gradient-to-b from-white to-warm-gray py-20 sm:py-24">
+        <div className="mx-auto w-full max-w-[1152px] px-5 sm:px-8 lg:px-0">
           <SectionHeading
             eyebrow="Testimonials"
             title="What Families Are Saying"
             description="Short reflections on the care, dignity, and peace of mind families found at Medford."
+            titleSize="xl"
           />
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-16 grid gap-8 md:grid-cols-3">
             {testimonials.map((t) => (
               <TestimonialCard key={t.name} testimonial={t} />
             ))}
           </div>
-        </PageContainer>
+        </div>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="bg-white py-20 sm:py-24">
         <PageContainer>
           <SectionHeading
             title="Life in Our Community"
-            description="Purposeful programming, nourishing meals, and neighbors who quickly feel like friends."
+            description="Every day is filled with connection, purpose, and joy"
+            titleSize="xl"
           />
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl shadow-md">
+          <div className="mt-16 grid grid-cols-1 gap-8 md:mt-[64px] md:grid-cols-2">
+            <div
+              className={`relative aspect-[4/3] min-h-[240px] w-full overflow-hidden rounded-2xl sm:min-h-[280px] md:aspect-auto md:h-[320px] ${lifeImageShadow}`}
+            >
               <Image
                 src={assets.lifeActivities}
                 alt="Residents participating in a creative art activity"
                 fill
-                className="object-cover"
+                className="object-cover object-[center_25%]"
                 sizes="(min-width: 768px) 50vw, 100vw"
               />
             </div>
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl shadow-md">
+            <div
+              className={`relative aspect-[4/3] min-h-[240px] w-full overflow-hidden rounded-2xl sm:min-h-[280px] md:aspect-auto md:h-[320px] ${lifeImageShadow}`}
+            >
               <Image
                 src={assets.lifeGarden}
                 alt="Residents enjoying time in an outdoor garden"
                 fill
-                className="object-cover"
+                className="object-cover object-[center_30%]"
                 sizes="(min-width: 768px) 50vw, 100vw"
               />
             </div>
           </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <div className="rounded-2xl border border-border bg-white p-6 text-center shadow-sm">
-              <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-mint text-primary">
-                <ActivitiesIcon className="size-6" />
-              </div>
-              <h3 className="mt-4 font-serif-display text-lg font-semibold">
-                {lifeCommunityPillars[0].title}
-              </h3>
-              <p className="mt-2 text-sm text-muted">
-                {lifeCommunityPillars[0].body}
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border bg-white p-6 text-center shadow-sm">
-              <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-mint text-primary">
-                <UtensilsIcon className="size-6" />
-              </div>
-              <h3 className="mt-4 font-serif-display text-lg font-semibold">
-                {lifeCommunityPillars[1].title}
-              </h3>
-              <p className="mt-2 text-sm text-muted">
-                {lifeCommunityPillars[1].body}
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border bg-white p-6 text-center shadow-sm md:col-span-1">
-              <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-mint text-primary">
-                <PartyIcon className="size-6" />
-              </div>
-              <h3 className="mt-4 font-serif-display text-lg font-semibold">
-                {lifeCommunityPillars[2].title}
-              </h3>
-              <p className="mt-2 text-sm text-muted">
-                {lifeCommunityPillars[2].body}
-              </p>
-            </div>
+          <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
+            {lifeCommunityPillars.map((pillar) => (
+                <article
+                  key={pillar.title}
+                  className={`flex min-h-0 flex-col rounded-2xl bg-white p-8 text-left md:min-h-[254px] ${pillarShadow}`}
+                >
+                  <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-mint">
+                    <Image
+                      src={pillar.iconSrc}
+                      alt=""
+                      width={24}
+                      height={24}
+                      className="size-6 object-contain"
+                      aria-hidden
+                    />
+                  </div>
+                  <h3 className="mt-6 font-serif-display text-[20px] font-bold leading-7 text-[#48484a]">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-2 text-pretty font-sans text-base font-normal leading-[26px] text-[#4b5563]">
+                    {pillar.body}
+                  </p>
+                </article>
+            ))}
           </div>
         </PageContainer>
       </section>
 
       <CTASection title="Ready to Take the Next Step?" />
-
-      <section className="border-t border-border bg-mint-soft/30 py-10">
-        <PageContainer className="flex flex-col items-center justify-between gap-4 text-center text-sm text-muted sm:flex-row sm:text-left">
-          <p>
-            Need to speak with someone now? Call{" "}
-            <Link
-              href="tel:+17813964400"
-              className="font-semibold text-primary hover:underline"
-            >
-              781.396.4400
-            </Link>
-            .
-          </p>
-          <Link
-            href="/pay-online"
-            className="font-semibold text-primary hover:underline"
-          >
-            Pay a bill online
-          </Link>
-        </PageContainer>
-      </section>
     </>
   );
 }

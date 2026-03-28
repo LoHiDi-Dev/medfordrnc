@@ -1,137 +1,190 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  Activity,
+  Award,
+  BedDouble,
+  Brain,
+  BriefcaseMedical,
+  Check,
+  Heart,
+  MessageSquare,
+  Star,
+  Stethoscope,
+  Users,
+} from "lucide-react";
 import { assets } from "./assets";
 
-export const trustMetrics = [
-  {
-    key: "years",
-    title: "30+ Years of Excellence",
-    description: "A long-standing commitment to quality care in our community.",
-    icon: "award" as const,
-  },
-  {
-    key: "cms",
-    title: "4.5 CMS Rating",
-    description: "Recognized performance on measures families care about.",
-    icon: "star" as const,
-  },
+export type TrustMetric = {
+  key: string;
+  value: string;
+  label: string;
+  icon: LucideIcon;
+};
+
+export const trustMetrics: TrustMetric[] = [
+  { key: "years", value: "30+", label: "Years of Excellence", icon: Award },
+  { key: "cms", value: "4.5", label: "CMS Rating", icon: Star },
   {
     key: "staff",
-    title: "200+ Dedicated Staff Members",
-    description: "Nurses, therapists, and support teams focused on every resident.",
-    icon: "people" as const,
+    value: "200+",
+    label: "Dedicated Staff Members",
+    icon: Users,
   },
   {
     key: "satisfaction",
-    title: "95% Family Satisfaction",
-    description: "Feedback that reflects trust, communication, and outcomes.",
-    icon: "heart" as const,
+    value: "95%",
+    label: "Family Satisfaction",
+    icon: Heart,
   },
-] as const;
+];
 
-export const serviceCards = [
+export type ServiceCardData = {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  icon: LucideIcon;
+  learnMoreArrow: "accent" | "primary";
+};
+
+export const serviceCards: ServiceCardData[] = [
   {
     slug: "short-term-rehabilitation",
-    title: "Short-Term Rehabilitation",
+    title: "Short-Term\nRehabilitation",
     description:
-      "Intensive therapy and nursing support to help you recover strength and independence after illness, injury, or surgery.",
+      "Short-term support focused on recovery, strength, and independence.",
     image: assets.services.shortTerm,
     imageAlt: "Physical therapist assisting a resident with rehabilitation exercises",
+    icon: Activity,
+    learnMoreArrow: "accent",
   },
   {
     slug: "long-term-care",
     title: "Long-Term Care",
     description:
-      "24-hour skilled nursing and personalized care plans for residents who need ongoing clinical support.",
+      "Compassionate long-term care in a comfortable, supportive setting.",
     image: assets.services.longTerm,
     imageAlt: "Care team supporting a resident in a comfortable care setting",
+    icon: BedDouble,
+    learnMoreArrow: "accent",
   },
   {
     slug: "memory-care",
     title: "Memory Care",
     description:
-      "Structured routines, secure environments, and specialized programming for residents living with dementia.",
+      "Specialized support for residents living with Alzheimer’s or dementia.",
     image: assets.services.memory,
     imageAlt: "Calm memory care environment with caregiver and resident",
+    icon: Brain,
+    learnMoreArrow: "accent",
   },
   {
     slug: "post-acute-care",
-    title: "Post-Acute Care",
+    title: "Post-Acute\nCare",
     description:
-      "A bridge between hospital and home with coordinated nursing, therapy, and discharge planning.",
+      "Skilled care after surgery, illness, or hospitalization.",
     image: assets.services.postAcute,
     imageAlt: "Clinical team providing post-acute care in a modern facility",
+    icon: Stethoscope,
+    learnMoreArrow: "primary",
   },
   {
     slug: "occupational-therapy",
     title: "Occupational Therapy",
     description:
-      "Rebuild daily living skills—from dressing and bathing to safe mobility at home.",
+      "Therapy that helps residents regain strength and daily function.",
     image: assets.services.occupational,
     imageAlt: "Occupational therapy session supporting activities of daily living",
+    icon: BriefcaseMedical,
+    learnMoreArrow: "primary",
   },
   {
     slug: "speech-therapy",
-    title: "Speech Therapy",
+    title: "Speech\nTherapy",
     description:
-      "Swallowing, communication, and cognitive strategies tailored to each resident’s goals.",
+      "Speech support focused on communication and swallowing needs.",
     image: assets.services.speech,
     imageAlt: "Speech therapist working with a resident on communication exercises",
+    icon: MessageSquare,
+    learnMoreArrow: "primary",
   },
-] as const;
+];
 
-export const whyFamiliesItems = [
+export type WhyFamiliesItem = {
+  title: string;
+  body: string;
+  icon: LucideIcon;
+};
+
+export const whyFamiliesItems: WhyFamiliesItem[] = [
   {
     title: "Clinical Excellence",
-    body: "Physician oversight, experienced nurses, and therapy teams collaborate on clear, measurable goals.",
+    body: "Experienced rehabilitation and nursing teams focused on long-term health, comfort, and better outcomes.",
+    icon: Check,
   },
   {
     title: "Family-Centered Approach",
-    body: "We prioritize communication, care conferences, and respectful partnership with loved ones.",
+    body: "We help families feel informed, supported, and involved at every step.",
+    icon: Check,
   },
   {
     title: "Modern Facilities",
-    body: "Bright therapy gyms, comfortable resident spaces, and amenities that support healing and dignity.",
+    body: "Comfortable spaces designed to support healing, daily living, and peace of mind.",
+    icon: Check,
   },
   {
     title: "Convenient Location",
-    body: "Easily reachable for Medford-area families with parking and visitor-friendly hours.",
+    body: "Easily accessible for local families, hospitals, and care partners in Medford.",
+    icon: Check,
   },
-] as const;
+];
 
 export const testimonials = [
   {
     name: "Margaret Chen",
     role: "Family Member",
     quote:
-      "The nurses called us with updates before we even had to ask. Dad was treated like family, not a number.",
+      "My mother was treated \nwith warmth, dignity, and real \ncompassion every day..",
     image: assets.testimonials.a,
   },
   {
     name: "Robert Martinez",
-    role: "Rehab Patient",
+    role: "Resident",
     quote:
-      "Therapy pushed me just enough every day. I went home stronger than I expected—and with a plan I understood.",
+      "The therapy team helped me \nregain my strength and confidence \nafter surgery..",
     image: assets.testimonials.b,
   },
   {
     name: "Linda Thompson",
     role: "Family Member",
     quote:
-      "We toured several centers. Medford felt calm, organized, and genuinely kind. That mattered more than anything.",
+      "Medford gave our family peace \nof mind when we needed it most..",
     image: assets.testimonials.c,
   },
 ] as const;
 
-export const lifeCommunityPillars = [
+export type LifeCommunityPillar = {
+  title: string;
+  body: string;
+  /** Raster icons from design (public/). */
+  iconSrc: string;
+};
+
+export const lifeCommunityPillars: LifeCommunityPillar[] = [
   {
     title: "Daily Activities",
-    body: "Meaningful programs—from music and art to gentle fitness—keep residents engaged and connected.",
+    body: "Engaging programs including music therapy, art classes, gardening, and social events.",
+    iconSrc: "/icons/life-community/calendar.png",
   },
   {
     title: "Delicious Dining",
-    body: "Chef-prepared meals with accommodations for preferences, textures, and clinical diets.",
+    body: "Chef-prepared meals with nutritious options, and accommodating dietary needs.",
+    iconSrc: "/icons/life-community/dining.png",
   },
   {
     title: "Community Events",
-    body: "Seasonal celebrations, guest performers, and intergenerational visits bring joy to everyday life.",
+    body: "Regular family gatherings, holiday celebrations and entertainment.",
+    iconSrc: "/icons/life-community/community.png",
   },
-] as const;
+];

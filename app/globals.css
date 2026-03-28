@@ -12,7 +12,13 @@
   --muted: #6b7280;
   --border: #e5e7eb;
   --card: #ffffff;
-  --footer: #1f2937;
+  --footer: #333333;
+  /* Solid charcoal footer (approved comp); secondary CTA sits slightly above it */
+  --footer-surface: #333333;
+  --footer-secondary-cta: #404040;
+  --footer-secondary-cta-hover: #4a4a4a;
+  --cta-section: rgba(0, 140, 38, 0.82);
+  --link-accent: #2ea14d;
   --star: #facc15;
   --ring: #008c27;
 }
@@ -30,9 +36,14 @@
   --color-border: var(--border);
   --color-card: var(--card);
   --color-footer: var(--footer);
+  --color-footer-surface: var(--footer-surface);
+  --color-footer-secondary-cta: var(--footer-secondary-cta);
+  --color-footer-secondary-cta-hover: var(--footer-secondary-cta-hover);
+  --color-cta-section: var(--cta-section);
+  --color-link-accent: var(--link-accent);
   --color-star: var(--star);
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-source-serif);
+  --font-serif: var(--font-lora);
 }
 
 html {
@@ -46,7 +57,7 @@ body {
 }
 
 .font-serif-display {
-  font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+  font-family: var(--font-lora), ui-serif, Georgia, serif;
 }
 
 /* Visible focus for keyboard users */
