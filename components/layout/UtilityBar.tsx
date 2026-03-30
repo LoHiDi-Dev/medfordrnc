@@ -10,11 +10,11 @@ const rasterIconClass = "size-[18px] shrink-0 object-contain";
 export function UtilityBar() {
   return (
     <div className="bg-primary text-white">
-      <PageContainer className="flex h-[60px] items-center justify-between gap-4 text-[18px] leading-7">
+      <PageContainer className="flex h-[60px] items-center justify-between gap-4 text-[18px] leading-7 lg:max-w-[1242px] lg:px-[58px]">
         <div className="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-1">
           <a
             href={`tel:${site.phoneTel}`}
-            className="inline-flex items-center gap-2 font-semibold leading-7 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="group inline-flex items-center gap-2 font-semibold leading-7 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <Image
               src={utilityIcons.call}
@@ -24,7 +24,8 @@ export function UtilityBar() {
               className={rasterIconClass}
             />
             <span className="whitespace-nowrap">
-              Call Now: {site.phoneDisplay}
+              <span>Call Now: </span>
+              <span className="group-hover:underline">{site.phoneDisplay}</span>
             </span>
           </a>
           <span

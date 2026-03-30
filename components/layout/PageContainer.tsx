@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
-/** ~1280px content width with ~80px horizontal inset at large breakpoints (Figma 1440 frame). */
+/** Max 1280px; large screens use ~109px horizontal inset (Figma 12-col grid, cols 2–11). */
 export function PageContainer({
   className,
   ...props
@@ -9,7 +9,7 @@ export function PageContainer({
   return (
     <div
       className={cn(
-        "mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-[80px]",
+        "mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-[109px]",
         className,
       )}
       {...props}

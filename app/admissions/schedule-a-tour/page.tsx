@@ -1,7 +1,18 @@
-import { InternalPage, internalMetadata } from "@/lib/internal-route";
+import { InternalPageHero } from "@/components/sections/InternalPageHero";
+import { PageContainer } from "@/components/layout/PageContainer";
+import { internalPages } from "@/data/internal-pages";
+import { internalMetadata } from "@/lib/internal-route";
 
 export const metadata = internalMetadata("admissions-schedule-a-tour");
 
 export default function Page() {
-  return <InternalPage slug="admissions-schedule-a-tour" />;
+  const copy = internalPages["admissions-schedule-a-tour"];
+  return (
+    <>
+      <InternalPageHero title={copy.heroTitle} subtitle={copy.heroSubtitle} />
+      <section className="py-14 sm:py-16">
+        <PageContainer className="max-w-3xl" />
+      </section>
+    </>
+  );
 }

@@ -7,6 +7,6 @@ export const metadata: Metadata = {
     "Send a warm message to your loved one. We’ll print and hand-deliver your note directly to their room.",
 };
 
-export default function ContactAResidentPage() {
+export default function ContactResidentPage() {
   return <ContactResidentForm />;
 }

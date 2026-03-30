@@ -1,8 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
-import { assets } from "@/data/assets";
-import { site } from "@/data/site";
 import { DesktopNav } from "@/components/nav/DesktopNav";
+import { HomeLogoLink } from "@/components/layout/HomeLogoLink";
 import { MobileNav } from "@/components/nav/MobileNav";
 import { PageContainer } from "./PageContainer";
 
@@ -12,20 +10,8 @@ const headerCtaShadow =
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-white">
-      <PageContainer className="flex h-[96px] items-center justify-between gap-6">
-        <Link
-          href="/"
-          className="relative h-[64px] w-[262px] max-w-[55vw] shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:max-w-none"
-        >
-          <Image
-            src={assets.logoColor}
-            alt={`${site.name} logo`}
-            fill
-            className="object-contain object-left"
-            sizes="262px"
-            priority
-          />
-        </Link>
+      <PageContainer className="flex h-[96px] items-center justify-between gap-6 lg:max-w-[1242px] lg:px-[58px]">
+        <HomeLogoLink className="relative block h-[64px] w-[262px] max-w-[55vw] shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:max-w-none" />
         <DesktopNav />
         <div className="flex items-center gap-3">
           <Link

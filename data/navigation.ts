@@ -1,4 +1,11 @@
-export type NavChild = { label: string; href: string };
+export type NavLeaf = { label: string; href: string };
+
+export type NavGroup = {
+  label: string;
+  children: NavLeaf[];
+};
+
+export type NavChild = NavLeaf | NavGroup;
 
 export type NavSection = {
   label: string;
@@ -6,39 +13,58 @@ export type NavSection = {
   children: NavChild[];
 };
 
+/** Parent labels link to section landing pages; no “Overview” in dropdowns. */
 export const mainNavigation: NavSection[] = [
   {
     label: "About Us",
-    href: "/about-us",
+    href: "/about",
     children: [
-      { label: "Overview", href: "/about-us" },
-      { label: "Mission & Values", href: "/about-us/mission-values" },
-      { label: "Our Team", href: "/about-us/our-team" },
-      { label: "Location & Community", href: "/about-us/location-community" },
+      { label: "Mission & Values", href: "/about/mission" },
+      { label: "Our Team", href: "/about/team" },
+      { label: "Location & Community", href: "/about/location" },
     ],
   },
   {
     label: "Services",
     href: "/services",
     children: [
-      { label: "Overview", href: "/services" },
-      { label: "Short-Term Rehabilitation", href: "/services/short-term-rehabilitation" },
-      { label: "Long-Term Care", href: "/services/long-term-care" },
-      { label: "Memory Care", href: "/services/memory-care" },
-      { label: "Skilled Nursing", href: "/services/skilled-nursing" },
-      { label: "Physical Therapy", href: "/services/physical-therapy" },
-      { label: "Occupational Therapy", href: "/services/occupational-therapy" },
-      { label: "Speech Therapy", href: "/services/speech-therapy" },
-      { label: "Post-Acute Care", href: "/services/post-acute-care" },
+      {
+        label: "Rehabilitation & Recovery",
+        children: [
+          {
+            label: "Short-Term Rehabilitation",
+            href: "/services/short-term-rehabilitation",
+          },
+          { label: "Post-Acute Care", href: "/services/post-acute-care" },
+        ],
+      },
+      {
+        label: "Therapy Services",
+        children: [
+          { label: "Physical Therapy", href: "/services/physical-therapy" },
+          {
+            label: "Occupational Therapy",
+            href: "/services/occupational-therapy",
+          },
+          { label: "Speech Therapy", href: "/services/speech-therapy" },
+        ],
+      },
+      {
+        label: "Long-Term & Specialized Care",
+        children: [
+          { label: "Long-Term Care", href: "/services/long-term-care" },
+          { label: "Skilled Nursing", href: "/services/skilled-nursing" },
+          { label: "Memory Care", href: "/services/memory-care" },
+        ],
+      },
     ],
   },
   {
     label: "Families",
     href: "/families",
     children: [
-      { label: "Overview", href: "/families" },
-      { label: "Contact a Resident", href: "/families/contact-a-resident" },
-      { label: "Visiting Information", href: "/families/visiting-information" },
+      { label: "Contact a Resident", href: "/families/contact" },
+      { label: "Visiting Information", href: "/families/visiting" },
       { label: "FAQs", href: "/families/faqs" },
     ],
   },
@@ -46,7 +72,6 @@ export const mainNavigation: NavSection[] = [
     label: "Admissions",
     href: "/admissions",
     children: [
-      { label: "Overview", href: "/admissions" },
       { label: "Request Information", href: "/admissions/request-information" },
       { label: "Schedule a Tour", href: "/admissions/schedule-a-tour" },
     ],

@@ -5,7 +5,7 @@ type SectionHeadingProps = {
   title: string;
   description?: string;
   align?: "center" | "left";
-  /** Figma: major sections use 48px Lora / 28px Inter sub. */
+  /** `lg` vs `xl` only affects width/description layout; titles are always 48px Lora. */
   titleSize?: "lg" | "xl";
   className?: string;
 };
@@ -31,21 +31,16 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2
-        className={cn(
-          "font-serif-display font-bold text-[#48484a]",
-          titleSize === "xl" && "text-[48px] leading-[48px]",
-          titleSize === "lg" &&
-            "text-[clamp(1.875rem,4vw,2.25rem)] leading-9 sm:text-4xl sm:leading-10",
-        )}
-      >
+      <h2 className="font-serif-display text-[48px] font-bold leading-[48px] tracking-[-0.02em] text-[#48484A]">
         {title}
       </h2>
       {description ? (
         <p
           className={cn(
-            "mt-4 font-sans text-[20px] font-normal leading-7 text-[#4b5563]",
-            titleSize === "xl" && "mx-auto max-w-[786px]",
+            "font-sans text-[20px] font-normal",
+            titleSize === "xl" &&
+              "mt-6 leading-[32.5px] text-[#374151] mx-auto max-w-[786px]",
+            titleSize === "lg" && "mt-4 leading-7 text-[#4b5563]",
           )}
         >
           {description}

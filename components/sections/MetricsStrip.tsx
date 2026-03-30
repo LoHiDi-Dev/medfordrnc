@@ -1,12 +1,14 @@
-import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { cn } from "@/lib/utils";
+
+const trustCircleBg = "/icons/trust/circle-bg.png";
 
 export type MetricItem = {
   key: string;
   value: string;
   label: string;
-  icon: LucideIcon;
+  iconSrc: string;
 };
 
 type MetricsStripProps = {
@@ -16,20 +18,30 @@ type MetricsStripProps = {
 
 export function MetricsStrip({ items, className }: MetricsStripProps) {
   return (
-    <section className={cn("bg-warm-gray", className)}>
+    <section className={cn("bg-[#E8F3EB]", className)}>
       <PageContainer className="flex min-h-[288px] items-center py-16">
         <div className="grid w-full grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4 lg:gap-8">
           {items.map((m) => {
-            const Icon = m.icon;
             return (
               <div
                 key={m.key}
                 className="flex flex-col items-center text-center"
               >
-                <div className="flex size-16 items-center justify-center rounded-full bg-mint">
-                  <Icon
-                    className="size-[30px] text-primary"
-                    strokeWidth={1.75}
+                <div className="relative flex size-16 shrink-0 items-center justify-center">
+                  <Image
+                    src={trustCircleBg}
+                    alt=""
+                    width={64}
+                    height={64}
+                    className="absolute size-16 object-contain"
+                    aria-hidden
+                  />
+                  <Image
+                    src={m.iconSrc}
+                    alt=""
+                    width={30}
+                    height={30}
+                    className="relative z-10 size-[30px] object-contain"
                     aria-hidden
                   />
                 </div>

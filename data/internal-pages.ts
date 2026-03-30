@@ -346,47 +346,34 @@ export const internalPages = {
   "privacy-policy": {
     title: "Privacy Policy",
     description:
-      "How Medford Rehabilitation & Nursing Center handles website and communication privacy in this demo environment.",
+      "Privacy policy for Medford Rehabilitation & Nursing Center.",
     heroTitle: "Privacy Policy",
-    heroSubtitle: "Demo placeholder—not legal advice.",
-    intro:
-      "This marketing demo does not collect or store personal health information. Do not submit PHI through demo forms.",
-    body: paragraph([
-      "A production privacy policy would describe data collection, cookies, analytics, and HIPAA-compliant practices for the organization.",
-      "For questions about real privacy practices, contact the facility’s compliance officer in a live environment.",
-    ]),
-    ctaTitle: "Back to home",
-    ctaBody: "Explore the rest of this demo site to see layout and interaction patterns.",
+    heroSubtitle: "",
+    intro: "",
+    body: paragraph([]),
+    ctaTitle: "",
+    ctaBody: "",
   },
   "terms-of-service": {
     title: "Terms of Service",
     description:
-      "Terms governing use of this demo website for Medford Rehabilitation & Nursing Center.",
+      "Terms of service for Medford Rehabilitation & Nursing Center.",
     heroTitle: "Terms of Service",
-    heroSubtitle: "Demo placeholder content.",
-    intro:
-      "This site is provided for demonstration purposes to showcase design and frontend behavior only.",
-    body: paragraph([
-      "No warranty is made as to accuracy of clinical or billing information on this demo.",
-      "Unauthorized reproduction of branding or imagery may be restricted by third-party licenses.",
-    ]),
-    ctaTitle: "Contact",
-    ctaBody: "Use the Contact page for general inquiries in a production deployment.",
+    heroSubtitle: "",
+    intro: "",
+    body: paragraph([]),
+    ctaTitle: "",
+    ctaBody: "",
   },
   accessibility: {
     title: "Accessibility",
     description:
-      "Our commitment to inclusive digital experiences and physical access at Medford Rehabilitation & Nursing Center.",
+      "Accessibility information for Medford Rehabilitation & Nursing Center.",
     heroTitle: "Accessibility",
-    heroSubtitle: "We welcome feedback that helps us improve.",
-    intro:
-      "This demo implements semantic structure, keyboard navigation, visible focus, and form labels to illustrate accessibility-minded UI.",
-    body: paragraph([
-      "The physical campus offers accessible parking, entrances, and wayfinding—confirm details on a live site or during your tour.",
-      "If you encounter a barrier on this demo, note it for your development team; production should publish a dedicated accessibility statement and contact.",
-    ]),
-    ctaTitle: "Schedule a tour",
-    ctaBody:
-      "See the building’s accessibility features in person with a member of our team.",
+    heroSubtitle: "",
+    intro: "",
+    body: paragraph([]),
+    ctaTitle: "",
+    ctaBody: "",
   },
 } satisfies Record<string, InternalPageCopy>;

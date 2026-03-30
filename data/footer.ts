@@ -1,7 +1,7 @@
 export const footerQuickLinks = [
-  { label: "About Us", href: "/about-us" },
-  { label: "Mission & Values", href: "/about-us/mission-values" },
-  { label: "Our Team", href: "/about-us/our-team" },
+  { label: "About Us", href: "/about" },
+  { label: "Mission & Values", href: "/about/mission" },
+  { label: "Our Team", href: "/about/team" },
   { label: "For Families", href: "/families" },
   { label: "Careers", href: "/careers" },
 ] as const;
@@ -22,3 +22,7 @@ export const footerLegal = [
 
 /** Matches Figma homepage footer copy (node 36:2839). */
 export const footerBlurb = `Providing compassionate care and trusted expertise to families in Medford, Mass for over 30 years.`;
+
+/** Equal opportunity / admissions & care — pre-footer compliance copy. */
+export const footerNonDiscrimination =
+  "This facility does not discriminate in admission or retention or care of its residents because of race, creed, color, national origin, sex, disability, age, source of payment, marital status or sexual preference.";

@@ -1,40 +1,34 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Activity,
-  Award,
-  BedDouble,
-  Brain,
-  BriefcaseMedical,
-  Check,
-  Heart,
-  MessageSquare,
-  Star,
-  Stethoscope,
-  Users,
-} from "lucide-react";
+import { Check } from "lucide-react";
 import { assets } from "./assets";
 
 export type TrustMetric = {
   key: string;
   value: string;
   label: string;
-  icon: LucideIcon;
+  /** Raster icon from design (`public/icons/trust/`). */
+  iconSrc: string;
 };
 
 export const trustMetrics: TrustMetric[] = [
-  { key: "years", value: "30+", label: "Years of Excellence", icon: Award },
-  { key: "cms", value: "4.5", label: "CMS Rating", icon: Star },
+  {
+    key: "years",
+    value: "30+",
+    label: "Years of Excellence",
+    iconSrc: "/icons/trust/excellence.png",
+  },
+  { key: "cms", value: "4.5", label: "CMS Rating", iconSrc: "/icons/trust/rating.png" },
   {
     key: "staff",
     value: "200+",
     label: "Dedicated Staff Members",
-    icon: Users,
+    iconSrc: "/icons/trust/staff.png",
   },
   {
     key: "satisfaction",
     value: "95%",
     label: "Family Satisfaction",
-    icon: Heart,
+    iconSrc: "/icons/trust/satisfaction.png",
   },
 ];
 
@@ -44,8 +38,8 @@ export type ServiceCardData = {
   description: string;
   image: string;
   imageAlt: string;
-  icon: LucideIcon;
-  learnMoreArrow: "accent" | "primary";
+  /** White glyph on green tile (`public/icons/services/`). */
+  iconSrc: string;
 };
 
 export const serviceCards: ServiceCardData[] = [
@@ -53,31 +47,28 @@ export const serviceCards: ServiceCardData[] = [
     slug: "short-term-rehabilitation",
     title: "Short-Term\nRehabilitation",
     description:
-      "Short-term support focused on recovery, strength, and independence.",
+      "Short-term support focused on recovery and independence.",
     image: assets.services.shortTerm,
     imageAlt: "Physical therapist assisting a resident with rehabilitation exercises",
-    icon: Activity,
-    learnMoreArrow: "accent",
+    iconSrc: "/icons/services/short-term-rehabilitation.png",
   },
   {
     slug: "long-term-care",
-    title: "Long-Term Care",
+    title: "Long-Term\nCare",
     description:
       "Compassionate long-term care in a comfortable, supportive setting.",
     image: assets.services.longTerm,
     imageAlt: "Care team supporting a resident in a comfortable care setting",
-    icon: BedDouble,
-    learnMoreArrow: "accent",
+    iconSrc: "/icons/services/long-term-care.png",
   },
   {
     slug: "memory-care",
-    title: "Memory Care",
+    title: "Memory\nCare",
     description:
       "Specialized support for residents living with Alzheimer’s or dementia.",
     image: assets.services.memory,
     imageAlt: "Calm memory care environment with caregiver and resident",
-    icon: Brain,
-    learnMoreArrow: "accent",
+    iconSrc: "/icons/services/memory-care.png",
   },
   {
     slug: "post-acute-care",
@@ -86,28 +77,24 @@ export const serviceCards: ServiceCardData[] = [
       "Skilled care after surgery, illness, or hospitalization.",
     image: assets.services.postAcute,
     imageAlt: "Clinical team providing post-acute care in a modern facility",
-    icon: Stethoscope,
-    learnMoreArrow: "primary",
+    iconSrc: "/icons/services/post-acute-care.png",
   },
   {
     slug: "occupational-therapy",
-    title: "Occupational Therapy",
+    title: "Occupational\nTherapy",
     description:
       "Therapy that helps residents regain strength and daily function.",
     image: assets.services.occupational,
     imageAlt: "Occupational therapy session supporting activities of daily living",
-    icon: BriefcaseMedical,
-    learnMoreArrow: "primary",
+    iconSrc: "/icons/services/occupational-therapy.png",
   },
   {
     slug: "speech-therapy",
     title: "Speech\nTherapy",
-    description:
-      "Speech support focused on communication and swallowing needs.",
+    description: "Speech support focused on communication needs.",
     image: assets.services.speech,
     imageAlt: "Speech therapist working with a resident on communication exercises",
-    icon: MessageSquare,
-    learnMoreArrow: "primary",
+    iconSrc: "/icons/services/speech-therapy.png",
   },
 ];
 
@@ -120,22 +107,22 @@ export type WhyFamiliesItem = {
 export const whyFamiliesItems: WhyFamiliesItem[] = [
   {
     title: "Clinical Excellence",
-    body: "Experienced rehabilitation and nursing teams focused on long-term health, comfort, and better outcomes.",
+    body: "Experienced rehabilitation and nursing teams focused \non long-term health, comfort, and better outcomes.",
     icon: Check,
   },
   {
     title: "Family-Centered Approach",
-    body: "We help families feel informed, supported, and involved at every step.",
+    body: "We help families feel informed, supported, \nand involved at every step.",
     icon: Check,
   },
   {
     title: "Modern Facilities",
-    body: "Comfortable spaces designed to support healing, daily living, and peace of mind.",
+    body: "Comfortable spaces designed to support \nhealing, daily living, and peace of mind.",
     icon: Check,
   },
   {
     title: "Convenient Location",
-    body: "Easily accessible for local families, hospitals, and care partners in Medford.",
+    body: "Easily accessible for local families, hospitals, \nand care partners in Medford.",
     icon: Check,
   },
 ];

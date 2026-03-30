@@ -18,10 +18,11 @@ const ctaIcons = {
   information: "/icons/cta/information.png",
 } as const;
 
-const iconClass = "size-12 shrink-0 object-contain";
+const iconBoxClass =
+  "flex size-[48px] shrink-0 items-center justify-center [&_img]:max-h-[48px] [&_img]:max-w-[48px] [&_img]:object-contain";
 
-/** White on CTA: `brightness-0 invert` until `calendar-white.png` is a real white asset (green lives at `/icons/life-community/calendar.png`). */
-const calendarWhiteVisualClass = `${iconClass} brightness-0 invert`;
+/** Green calendar asset: invert to read white on green CTA. */
+const calendarOnGreenClass = "brightness-0 invert";
 
 export function CTASection({ title, className }: CTASectionProps) {
   return (
@@ -43,13 +44,15 @@ export function CTASection({ title, className }: CTASectionProps) {
         </div>
         <div className="mx-auto mt-8 flex max-w-[896px] flex-col flex-wrap items-center justify-center gap-6 md:flex-row md:justify-center">
           <Link href="/admissions/schedule-a-tour" className={cardClass}>
-            <Image
-              src={ctaIcons.calendarWhite}
-              alt=""
-              width={48}
-              height={48}
-              className={calendarWhiteVisualClass}
-            />
+            <span className={iconBoxClass}>
+              <Image
+                src={ctaIcons.calendarWhite}
+                alt=""
+                width={48}
+                height={48}
+                className={calendarOnGreenClass}
+              />
+            </span>
             <span className="mt-4 font-sans text-[20px] font-semibold leading-7 tracking-[-0.4492px]">
               Schedule a Tour
             </span>
@@ -61,13 +64,14 @@ export function CTASection({ title, className }: CTASectionProps) {
             href="/admissions/request-information"
             className={cardClass}
           >
-            <Image
-              src={ctaIcons.information}
-              alt=""
-              width={48}
-              height={48}
-              className={iconClass}
-            />
+            <span className={iconBoxClass}>
+              <Image
+                src={ctaIcons.information}
+                alt=""
+                width={48}
+                height={48}
+              />
+            </span>
             <span className="mt-4 font-sans text-[20px] font-semibold leading-7 tracking-[-0.4492px]">
               Request Information
             </span>
@@ -76,13 +80,14 @@ export function CTASection({ title, className }: CTASectionProps) {
             </span>
           </Link>
           <a href={`tel:${site.phoneTel}`} className={cardClass}>
-            <Image
-              src={utilityIcons.call}
-              alt=""
-              width={48}
-              height={48}
-              className={iconClass}
-            />
+            <span className={iconBoxClass}>
+              <Image
+                src={utilityIcons.call}
+                alt=""
+                width={48}
+                height={48}
+              />
+            </span>
             <span className="mt-4 font-sans text-[20px] font-semibold leading-7 tracking-[-0.4492px]">
               Call Now
             </span>

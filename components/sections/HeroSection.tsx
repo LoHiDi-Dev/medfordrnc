@@ -24,6 +24,7 @@ export function HeroSection({
   const titleParts = title.includes("your family")
     ? title.split(/(?=your family)/)
     : [title];
+  const [titleLineOne, titleLineTwo] = [titleParts[0] ?? title, titleParts[1] ?? ""];
 
   const descLines = description
     .split("\n")
@@ -52,22 +53,19 @@ export function HeroSection({
           aria-hidden
         />
       </div>
-      <PageContainer className="relative flex h-full min-h-[inherit] items-center py-10 sm:py-14 lg:py-0">
-        <div className="max-w-[768px] text-white lg:pt-[124px]">
-          <p className="inline-flex h-9 items-center gap-2 rounded-full bg-white pl-4 pr-4 text-[14px] font-semibold leading-5 tracking-[-0.1504px] text-primary shadow-sm">
+      <PageContainer className="relative flex h-full min-h-[inherit] items-center py-10 sm:py-14 lg:max-w-[1242px] lg:px-[58px]">
+        <div className="w-full max-w-[768px] text-white">
+          <p className="inline-flex h-[35.99px] w-[232.27px] items-center gap-2 rounded-full bg-white pl-4 pr-4 text-[14px] font-semibold leading-5 tracking-[-0.1504px] text-[#008C27] shadow-sm">
             <Award
-              className="size-4 shrink-0 text-primary"
+              className="size-4 shrink-0 text-[#008C27]"
               strokeWidth={2}
               aria-hidden
             />
             {badge}
           </p>
-          <h1 className="mt-6 font-sans text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[1.25] tracking-[0.2637px] sm:text-[60px] sm:leading-[75px]">
-            {titleParts.map((part) => (
-              <span key={part} className="block">
-                {part.trim()}
-              </span>
-            ))}
+          <h1 className="mt-5 max-w-[642px] font-sans text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[1.08] tracking-[0.2637px] sm:text-[60px] sm:leading-[75px]">
+            <span className="block">{titleLineOne.trim()}</span>
+            {titleLineTwo ? <span className="block">{titleLineTwo.trim()}</span> : null}
           </h1>
           <div className="mt-6 max-w-[672px] font-sans text-2xl font-normal leading-[39px] tracking-[0.0703px] text-white/90">
             {descLines.map((line) => (
@@ -76,7 +74,7 @@ export function HeroSection({
               </p>
             ))}
           </div>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <Link
               href="/admissions/schedule-a-tour"
               className={cn(
