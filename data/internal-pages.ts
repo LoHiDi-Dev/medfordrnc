@@ -7,6 +7,10 @@ export type InternalPageCopy = {
   body: string[];
   ctaTitle: string;
   ctaBody: string;
+  /** Optional: hide the CTA card/buttons on this page. */
+  hideCta?: boolean;
+  /** Optional: hide the “Return to the homepage” helper line. */
+  hideReturnLink?: boolean;
 };
 
 const paragraph = (lines: string[]): InternalPageCopy["body"] => lines;
@@ -229,9 +233,10 @@ export const internalPages = {
       "Use this section to find visiting information, FAQs, and ways to send encouragement to residents.",
       "When something feels urgent, call the front desk—we are available around the clock.",
     ]),
-    ctaTitle: "Send a message to a resident",
-    ctaBody:
-      "We print and hand-deliver notes so your loved one knows you are thinking of them.",
+    ctaTitle: "",
+    ctaBody: "",
+    hideCta: true,
+    hideReturnLink: true,
   },
   "families-visiting-information": {
     title: "Visiting Information",
