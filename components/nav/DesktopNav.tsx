@@ -184,7 +184,7 @@ function DesktopNavInner() {
     <nav
       key={pathname}
       aria-label="Main"
-      className="hidden items-center lg:flex"
+      className="hidden items-center xl:flex"
     >
       <ul className="flex w-[373.56px] items-center gap-8">
         {mainNavigation.map((section) => {

@@ -16,7 +16,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <Link
             href="/admissions/schedule-a-tour"
-            className={`hidden h-[48px] min-w-[169px] items-center justify-center rounded-[10px] bg-primary px-6 text-[16px] font-semibold leading-6 tracking-[-0.3125px] text-white transition-colors hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:inline-flex ${headerCtaShadow}`}
+            className={`hidden h-[48px] min-w-[169px] items-center justify-center rounded-[10px] bg-primary px-6 text-[16px] font-semibold leading-6 tracking-[-0.3125px] text-white transition-colors hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary xl:inline-flex ${headerCtaShadow}`}
           >
             Schedule a Tour
           </Link>

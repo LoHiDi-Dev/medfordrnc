@@ -48,7 +48,7 @@ function MobileNavPanel({ pathname }: { pathname: string }) {
   }, [open]);
 
   return (
-    <div className="flex items-center gap-3 lg:hidden">
+    <div className="flex items-center gap-3 xl:hidden">
       <Button
         type="button"
         variant="ghost"

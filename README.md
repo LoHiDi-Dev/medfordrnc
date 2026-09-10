@@ -79,7 +79,7 @@ npm run lint    # ESLint
 - **No real payment processing** — bill pay is UI + validation + mock success/error only; structured so a provider SDK can replace the submit handler.  
 - **No email or messaging backend** — contact/resident form shows a demo confirmation only; nothing is persisted.  
 - **No PHI/PII storage** — do not submit real protected health information.  
-- **Imagery** — key photos use time-limited Figma MCP asset URLs; replace with licensed production assets before launch.
+- **Imagery** — production images are stored under `public/images/`; the app has no runtime dependency on temporary Figma export URLs.
 
 ## Project structure (high level)
 
@@ -87,6 +87,7 @@ npm run lint    # ESLint
 - `components/` — layout, sections, UI primitives, feature forms  
 - `data/` — site config, navigation, footer links, page copy, homepage content  
 - `lib/` — utilities and internal page helpers  
+- `public/images/` — permanent brand and content imagery used by the site
 
 ## Repository
 

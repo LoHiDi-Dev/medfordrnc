@@ -88,7 +88,7 @@ export default function HomePage() {
 
       <section className="bg-[#E8F3EB] py-20">
         <PageContainer className="px-5 sm:px-8 lg:px-0">
-          <div className="grid w-full items-center gap-10 sm:gap-12 lg:grid-cols-[616px_616px] lg:justify-between lg:gap-12">
+          <div className="grid w-full items-center gap-10 sm:gap-12 xl:grid-cols-[616px_616px] xl:justify-between xl:gap-12">
             <div
               className={`relative h-[min(500px,78vw)] max-h-[500px] min-h-[280px] w-full min-w-0 overflow-hidden rounded-2xl lg:h-[500px] ${whyImageShadow}`}
             >
@@ -97,7 +97,7 @@ export default function HomePage() {
                 alt="Residents enjoying activities together in a bright community room"
                 fill
                 className="object-cover object-[center_12%]"
-                sizes="(min-width: 1024px) min(560px, 45vw), 100vw"
+                sizes="(min-width: 1280px) min(560px, 45vw), 100vw"
               />
             </div>
             <div className="flex w-full min-w-0 flex-col items-stretch justify-center text-left lg:justify-self-stretch">

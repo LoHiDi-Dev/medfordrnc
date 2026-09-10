@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { assets } from "@/data/assets";
 import { site } from "@/data/site";
 
@@ -12,6 +12,7 @@ type HomeLogoLinkProps = {
 
 export function HomeLogoLink({ className }: HomeLogoLinkProps) {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <Link
@@ -23,7 +24,7 @@ export function HomeLogoLink({ className }: HomeLogoLinkProps) {
         if (pathname === "/") {
           window.location.reload();
         } else {
-          window.location.assign("/");
+          router.push("/");
         }
       }}
     >
